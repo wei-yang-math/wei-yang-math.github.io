@@ -1,0 +1,74 @@
+---
+import "katex/dist/katex.min.css";
+import "../styles/global.css";
+import { navigation, profile } from "../data/profile";
+
+type Props = {
+  title?: string;
+  description?: string;
+  frontmatter?: {
+    title?: string;
+    description?: string;
+  };
+};
+
+const siteTitle = `${profile.name} - Mathematics`;
+const frontmatter = Astro.props.frontmatter ?? {};
+const {
+  title = frontmatter.title ?? siteTitle,
+  description = frontmatter.description ??
+    `${profile.name} is a mathematics Ph.D. student at ${profile.affiliation}, working in ${profile.interests.join(" and ")}.`,
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const pageTitle = title === siteTitle ? title : `${title} - ${siteTitle}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={Astro.url.href} />
+    <title>{pageTitle}</title>
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-title" href="/" aria-label={`${profile.name} homepage`}>
+          <span>{profile.name}</span>
+          <span lang="zh-Hans">{profile.chineseName}</span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          {
+            navigation.map((item) => {
+              const isCurrent =
+                item.href === "/"
+                  ? currentPath === "/"
+                  : currentPath.startsWith(item.href);
+
+              return (
+                <a href={item.href} aria-current={isCurrent ? "page" : undefined}>
+                  {item.label}
+                </a>
+              );
+            })
+          }
+        </nav>
+      </header>
+
+      <main id="main-content">
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <p>Last updated: {profile.lastUpdated}</p>
+      </footer>
+    </div>
+  </body>
+</html>

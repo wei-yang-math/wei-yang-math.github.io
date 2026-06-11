@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile } from "../data/profile";
+---
+
+<BaseLayout
+  title="Contact"
+  description="Contact information for Wei Yang."
+>
+  <article class="page" aria-labelledby="contact-title">
+    <p class="eyebrow">Contact</p>
+    <h1 id="contact-title">Contact</h1>
+
+    <p>
+      The best way to contact me is by email.
+    </p>
+
+    <section class="details" aria-label="Contact information">
+      <dl>
+        <div>
+          <dt>Email</dt>
+          <dd><a href={`mailto:${profile.email}`}>{profile.email}</a></dd>
+        </div>
+        <div>
+          <dt>Affiliation</dt>
+          <dd>{profile.affiliation}</dd>
+        </div>
+      </dl>
+    </section>
+  </article>
+</BaseLayout>

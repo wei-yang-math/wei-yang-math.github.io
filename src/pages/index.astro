@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile } from "../data/profile";
+
+const description = `Wei Yang is a third-year Ph.D. student in mathematics at Peking University, advised by Professor Ruochuan Liu.`;
+---
+
+<BaseLayout title="Home" description={description}>
+  <section class="home" aria-labelledby="home-title">
+    <div>
+      <p class="eyebrow">{profile.position}</p>
+      <h1 id="home-title">{profile.name}</h1>
+
+      <p class="lead">
+        I am a third-year Ph.D. student in mathematics at Peking University,
+        advised by Professor Ruochuan Liu. I started my Ph.D. studies in 2023.
+      </p>
+
+      <p>
+        My research interests lie in homotopy theory and arithmetic geometry.
+      </p>
+
+      <section class="details" aria-label="Academic information">
+        <dl>
+          <div>
+            <dt>Affiliation</dt>
+            <dd>{profile.affiliation}</dd>
+          </div>
+          <div>
+            <dt>Advisor</dt>
+            <dd>{profile.advisor}</dd>
+          </div>
+          <div>
+            <dt>Interests</dt>
+            <dd>{profile.interests.join(" and ")}</dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd><a href={`mailto:${profile.email}`}>{profile.email}</a></dd>
+          </div>
+        </dl>
+      </section>
+    </div>
+
+    <aside class="side-note" aria-label="Current status">
+      <p>
+        Mathematics Ph.D. student at Peking University.
+      </p>
+      <p>
+        Started Ph.D. studies in {profile.startedPhd}.
+      </p>
+    </aside>
+  </section>
+</BaseLayout>
