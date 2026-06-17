@@ -59,6 +59,22 @@ E_2^{p,q} \Rightarrow H^{p+q}(X)
 $$
 ```
 
+Each note can include a posted date in its frontmatter:
+
+```mdx
+---
+layout: ../../layouts/NoteLayout.astro
+title: Example Note
+description: A short description of the note.
+date: 2026-06-17
+---
+
+The note begins here.
+```
+
+The `date` field is shown on the note page and in the Notes index. Add
+`updated: YYYY-MM-DD` if a note needs a separate revision date.
+
 ## Deployment
 
 The output of `npm run build` is written to `dist/`. That directory can be

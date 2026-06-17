@@ -1,5 +1,61 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const noteModules = Object.entries(
+  import.meta.glob("./*.mdx", { eager: true }),
+);
+
+const notes = noteModules
+  .map(([filePath, note]) => {
+    const frontmatter = (note as { frontmatter?: unknown }).frontmatter as {
+      title?: string;
+      description?: string;
+      date?: string | Date;
+    } | undefined;
+    const slug = filePath.replace("./", "").replace(/\.mdx$/, "");
+
+    return {
+      title: frontmatter?.title ?? "Untitled Note",
+      description: frontmatter?.description ?? "",
+      date: normalizeDate(frontmatter?.date),
+      url: slug === "index" ? "/notes/" : `/notes/${slug}/`,
+    };
+  })
+  .sort((a, b) => b.date.localeCompare(a.date));
+
+function normalizeDate(value?: string | Date) {
+  if (!value) return "";
+
+  if (Object.prototype.toString.call(value) === "[object Date]") {
+    const dateValue = value as Date;
+    return Number.isNaN(dateValue.getTime())
+      ? ""
+      : dateValue.toISOString().slice(0, 10);
+  }
+
+  const rawValue = String(value).trim();
+  const dateOnlyMatch = rawValue.match(/^(\d{4}-\d{2}-\d{2})/);
+  if (dateOnlyMatch) return dateOnlyMatch[1];
+
+  const parsedDate = new Date(rawValue);
+  return Number.isNaN(parsedDate.getTime())
+    ? ""
+    : parsedDate.toISOString().slice(0, 10);
+}
+
+function formatDate(value?: string | Date) {
+  const normalizedDate = normalizeDate(value);
+  if (!normalizedDate) return "Undated";
+
+  const [year, month, day] = normalizedDate.split("-").map(Number);
+
+  return new Intl.DateTimeFormat("en", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(Date.UTC(year, month - 1, day)));
+}
 ---
 
 <BaseLayout
@@ -16,16 +72,26 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       mathematical notation rendered on the page.
     </p>
 
-    <section aria-labelledby="examples-title">
-      <h2 id="examples-title">Example</h2>
+    <section aria-labelledby="notes-list-title">
+      <h2 id="notes-list-title">Notes</h2>
       <ul class="section-list">
-        <li>
-          <h3><a href="/notes/sample/">A Short MDX Math Example</a></h3>
-          <p class="muted">
-            A placeholder note showing inline and displayed mathematical
-            notation.
-          </p>
-        </li>
+        {
+          notes.map((note) => (
+            <li>
+              <h3><a href={note.url}>{note.title}</a></h3>
+              <p class="note-date">
+                {
+                  note.date ? (
+                    <time datetime={note.date}>{formatDate(note.date)}</time>
+                  ) : (
+                    "Undated"
+                  )
+                }
+              </p>
+              {note.description && <p class="muted">{note.description}</p>}
+            </li>
+          ))
+        }
       </ul>
     </section>
   </article>
