@@ -87,7 +87,7 @@ This repository includes a GitHub Actions workflow at
 Astro GitHub Action to build and upload the site, then deploys it with GitHub
 Pages.
 
-For the `yangwei02miku-del.github.io` repository:
+For the `wei-yang-math.github.io` repository:
 
 1. Push the project to the `main` branch.
 2. In GitHub, open the repository settings.
@@ -95,4 +95,4 @@ For the `yangwei02miku-del.github.io` repository:
 4. Set **Source** to **GitHub Actions**.
 
 After that, every push to `main` will build and deploy the site automatically at
-`https://yangwei02miku-del.github.io`.
+`https://wei-yang-math.github.io`.

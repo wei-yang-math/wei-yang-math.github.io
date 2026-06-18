@@ -5,7 +5,7 @@ import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 
 export default defineConfig({
-  site: "https://yangwei02miku-del.github.io",
+  site: "https://wei-yang-math.github.io",
   markdown: {
     processor: unified({
       remarkPlugins: [remarkMath],
