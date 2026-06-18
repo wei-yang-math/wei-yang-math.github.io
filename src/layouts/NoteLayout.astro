@@ -4,6 +4,7 @@ import BaseLayout from "./BaseLayout.astro";
 type Frontmatter = {
   title?: string;
   description?: string;
+  author?: string;
   date?: string | Date;
   updated?: string | Date;
 };
@@ -62,7 +63,8 @@ const updatedDate = normalizeDate(frontmatter.updated);
     {
       postedDate && (
         <p class="note-meta">
-          Posted: <time datetime={postedDate}>{formatDate(postedDate)}</time>
+          {frontmatter.author && <>Author: {frontmatter.author} · </>}
+          Added: <time datetime={postedDate}>{formatDate(postedDate)}</time>
           {
             updatedDate && (
               <>

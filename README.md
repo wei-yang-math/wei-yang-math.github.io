@@ -66,14 +66,16 @@ Each note can include a posted date in its frontmatter:
 layout: ../../layouts/NoteLayout.astro
 title: Example Note
 description: A short description of the note.
+author: Wei Yang
 date: 2026-06-17
 ---
 
 The note begins here.
 ```
 
-The `date` field is shown on the note page and in the Notes index. Add
-`updated: YYYY-MM-DD` if a note needs a separate revision date.
+The `date` field is shown as the date the note was added on the note page and
+in the Notes index. Add `updated: YYYY-MM-DD` if a note needs a separate
+revision date.
 
 ## Deployment
 

@@ -10,6 +10,7 @@ const notes = noteModules
     const frontmatter = (note as { frontmatter?: unknown }).frontmatter as {
       title?: string;
       description?: string;
+      author?: string;
       date?: string | Date;
     } | undefined;
     const slug = filePath.replace("./", "").replace(/\.mdx$/, "");
@@ -17,6 +18,7 @@ const notes = noteModules
     return {
       title: frontmatter?.title ?? "Untitled Note",
       description: frontmatter?.description ?? "",
+      author: frontmatter?.author ?? "",
       date: normalizeDate(frontmatter?.date),
       url: slug === "index" ? "/notes/" : `/notes/${slug}/`,
     };
@@ -80,6 +82,7 @@ function formatDate(value?: string | Date) {
             <li>
               <h3><a href={note.url}>{note.title}</a></h3>
               <p class="note-date">
+                {note.author && <>{note.author} · </>}
                 {
                   note.date ? (
                     <time datetime={note.date}>{formatDate(note.date)}</time>
