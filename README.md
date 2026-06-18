@@ -96,3 +96,9 @@ For the `wei-yang-math.github.io` repository:
 
 After that, every push to `main` will build and deploy the site automatically at
 `https://wei-yang-math.github.io`.
+
+## Search Indexing
+
+The site includes `public/robots.txt` and `public/sitemap.xml`. After adding or
+removing public pages, update `public/sitemap.xml` so search engines can discover
+the preferred canonical URLs.

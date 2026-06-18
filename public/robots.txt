@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wei-yang-math.github.io/sitemap.xml
