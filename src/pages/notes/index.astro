@@ -65,22 +65,21 @@ function formatDate(value?: string | Date) {
   description="Lecture notes, seminar notes, and reading notes by Wei Yang."
 >
   <article class="page" aria-labelledby="notes-title">
-    <p class="eyebrow">Notes</p>
     <h1 id="notes-title">Notes</h1>
 
-    <p>
-      This page is reserved for future lecture notes, seminar notes, and reading
-      notes. Notes may be written in Markdown or MDX, with LaTeX-style
-      mathematical notation rendered on the page.
+    <p class="lead">
+      This page collects lecture notes, seminar notes, and short mathematical
+      writings.
     </p>
 
-    <section aria-labelledby="notes-list-title">
-      <h2 id="notes-list-title">Notes</h2>
-      <ul class="section-list">
+    <section aria-label="Notes list">
+      <ul class="section-list notes-list">
         {
           notes.map((note) => (
             <li>
-              <h3><a href={note.url}>{note.title}</a></h3>
+              <h2 class="note-list-title">
+                <a href={note.url}>{note.title}</a>
+              </h2>
               <p class="note-date">
                 {note.author && <>{note.author} · </>}
                 {
@@ -91,7 +90,6 @@ function formatDate(value?: string | Date) {
                   )
                 }
               </p>
-              {note.description && <p class="muted">{note.description}</p>}
             </li>
           ))
         }

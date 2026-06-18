@@ -232,6 +232,28 @@ li + li {
   margin: -4px 0 8px;
 }
 
+.notes-list {
+  margin-top: 44px;
+}
+
+.note-list-title {
+  margin: 0 0 8px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.note-list-title a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.note-list-title a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
 .math-note {
   margin: 28px 0;
   padding: 18px 20px;
