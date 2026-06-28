@@ -42,6 +42,9 @@ npm run preview
 - Personal information is in `src/data/profile.ts`.
 - Main pages are in `src/pages/`.
 - Notes can be added as Markdown or MDX files under `src/pages/notes/`.
+- Notes in the syntomic complexes series can be added under
+  `src/pages/notes/syntomic-complexes-ok/`. In that subdirectory, use
+  `layout: ../../../layouts/NoteLayout.astro` in MDX frontmatter.
 - Global styling is in `src/styles/global.css`.
 
 ## Mathematical Notes

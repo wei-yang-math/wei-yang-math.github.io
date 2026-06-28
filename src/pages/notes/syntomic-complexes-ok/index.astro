@@ -1,14 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-
-const series = [
-  {
-    title: "Syntomic Complexes over O_K",
-    description:
-      "Notes on computing the cohomology of syntomic complexes over the ring of integers O_K, using several different approaches.",
-    url: "/notes/syntomic-complexes-ok/",
-  },
-];
+import BaseLayout from "../../../layouts/BaseLayout.astro";
 
 const noteModules = Object.entries(
   import.meta.glob("./*.mdx", { eager: true }),
@@ -29,7 +20,7 @@ const notes = noteModules
       description: frontmatter?.description ?? "",
       author: frontmatter?.author ?? "",
       date: normalizeDate(frontmatter?.date),
-      url: slug === "index" ? "/notes/" : `/notes/${slug}/`,
+      url: `/notes/syntomic-complexes-ok/${slug}/`,
     };
   })
   .sort((a, b) => b.date.localeCompare(a.date));
@@ -70,58 +61,49 @@ function formatDate(value?: string | Date) {
 ---
 
 <BaseLayout
-  title="Notes"
-  description="Lecture notes, seminar notes, and reading notes by Wei Yang."
+  title="Syntomic Complexes over O_K"
+  description="A series of notes on computing the cohomology of syntomic complexes over the ring of integers O_K."
 >
-  <article class="page" aria-labelledby="notes-title">
-    <h1 id="notes-title">Notes</h1>
+  <article class="page" aria-labelledby="series-title">
+    <p class="eyebrow"><a href="/notes/">Notes</a></p>
+    <h1 id="series-title">Syntomic Complexes over O_K</h1>
 
     <p class="lead">
-      This page collects lecture notes, seminar notes, and short mathematical
-      writings.
+      This series collects notes on computations of the cohomology of syntomic
+      complexes over the ring of integers O_K. The notes treat the same basic
+      problem from different points of view.
     </p>
 
-    <section aria-labelledby="series-title">
-      <h2 id="series-title" class="list-section-title">Series</h2>
-      <ul class="section-list notes-list">
-        {
-          series.map((item) => (
-            <li>
-              <h3 class="note-list-title">
-                <a href={item.url}>{item.title}</a>
-              </h3>
-              <p class="muted">{item.description}</p>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
-
-    <section aria-labelledby="standalone-notes-title">
-      <h2 id="standalone-notes-title" class="list-section-title">
-        Standalone Notes
+    <section aria-labelledby="series-notes-title">
+      <h2 id="series-notes-title" class="list-section-title">
+        Notes in This Series
       </h2>
-      <ul class="section-list notes-list">
-        {
-          notes.map((note) => (
-            <li>
-              <h3 class="note-list-title">
-                <a href={note.url}>{note.title}</a>
-              </h3>
-              <p class="note-date">
-                {note.author && <>{note.author} · </>}
-                {
-                  note.date ? (
+      {
+        notes.length > 0 ? (
+          <ul class="section-list notes-list">
+            {notes.map((note) => (
+              <li>
+                <h3 class="note-list-title">
+                  <a href={note.url}>{note.title}</a>
+                </h3>
+                <p class="note-date">
+                  {note.author && <>{note.author} · </>}
+                  {note.date ? (
                     <time datetime={note.date}>{formatDate(note.date)}</time>
                   ) : (
                     "Undated"
-                  )
-                }
-              </p>
-            </li>
-          ))
-        }
-      </ul>
+                  )}
+                </p>
+                {note.description && <p class="muted">{note.description}</p>}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="muted">
+            Notes will be added here as they are prepared.
+          </p>
+        )
+      }
     </section>
   </article>
 </BaseLayout>

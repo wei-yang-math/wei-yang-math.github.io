@@ -233,7 +233,14 @@ li + li {
 }
 
 .notes-list {
+  margin-top: 12px;
+}
+
+.list-section-title {
   margin-top: 44px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.18rem;
 }
 
 .note-list-title {
