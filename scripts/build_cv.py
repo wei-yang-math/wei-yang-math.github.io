@@ -176,9 +176,17 @@ def build_cv() -> None:
     )
     y = draw_wrapped(
         c,
-        "Undergraduate studies, School of the Gifted Young",
+        "B.S. in Mathematics, School of the Gifted Young",
         y,
         size=10,
+        color=MUTED,
+    )
+    y = draw_wrapped(
+        c,
+        "Undergraduate advisor: Professor Lei Zhang",
+        y + 1,
+        font="TimesNewRoman-Italic",
+        size=9.7,
         color=MUTED,
     )
     y -= 14
