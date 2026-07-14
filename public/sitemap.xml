@@ -14,15 +14,21 @@
   </url>
   <url>
     <loc>https://wei-yang-math.github.io/notes/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://wei-yang-math.github.io/notes/syntomic-complexes-ok/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wei-yang-math.github.io/notes/syntomic-complexes-ok/q-operator-model-cyclotomic-syntomic-tate-twists/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://wei-yang-math.github.io/notes/syntomic-complexes-ok/syntomic-tate-twists-over-p-adic-local-fields/</loc>
