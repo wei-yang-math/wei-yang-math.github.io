@@ -1,0 +1,61 @@
+---
+layout: ../../layouts/NoteLayout.astro
+title: On E-infinity- and DAlg-Descendability
+description: Answers to five questions about multiplicative refinements of descendability and finite-stage Amitsur retractions.
+author: Wei Yang
+date: 2026-09-03
+---
+
+[Download the PDF](/notes/einfinity-dalg-descendability.pdf)
+
+Article date: August 30, 2026.
+
+## Abstract
+
+For a map $R\to S$ of $\mathbb{E}_\infty$-rings, its $n$th finite Amitsur
+stage is
+
+$$
+\operatorname{Tot}^n\bigl(S^{\otimes_R(\bullet+1)}\bigr).
+$$
+
+Antieau and Stefanich asked five questions about multiplicative retractions
+from these finite stages. We answer all five.
+
+For every prime $p$ and every $k\geq 2$, the restriction map
+
+$$
+C^*(BC_{p^k};\mathbb{F}_p)\longrightarrow C^*(BC_p;\mathbb{F}_p)
+$$
+
+is descendable but not $\mathbb{E}_\infty$-descendable, and hence is not
+$\mathrm{DAlg}$-descendable; for $k=1$ the map is the identity. Thus ordinary
+and $\mathbb{E}_\infty$-descendability differ even for cochains on finite
+cyclic $p$-groups.
+
+Complexification $KO\to KU$ is $\mathbb{E}_\infty$-descendable: the unit
+
+$$
+KO\longrightarrow
+\operatorname{Tot}^5\bigl(KU^{\otimes_{KO}(\bullet+1)}\bigr)
+$$
+
+admits a retraction in $\mathrm{CAlg}_{KO}$. The units at stages $0$, $1$,
+and $2$ do not split in $\mathrm{CAlg}_{KO}$, and the unit at stage $3$ does
+not split even as an $\mathbb{E}_1$-$KO$-algebra map. Thus the least
+$\mathbb{E}_\infty$-splitting stage is either $4$ or $5$.
+
+Let $A$ be a Noetherian $\mathbb{F}_p$-algebra of finite Krull dimension, put
+$d_A=\max\{1,\dim A\}$, and let $A\to B$ be a faithfully flat map of discrete
+$\mathbb{F}_p$-algebras. Without any finite-type hypothesis on $B$, the unit
+admits a retraction in derived commutative $A$-algebras
+
+$$
+\operatorname{Tot}^{d_A+1}\bigl(B^{\otimes_A(\bullet+1)}\bigr)
+\longrightarrow A;
+$$
+
+specializing to $\mathbb{F}_p[x]\to\mathbb{F}_p[x^{1/p^\infty}]$ gives a
+retraction at stage $2$. The proof uses the first two natural layers of a free
+derived symmetric algebra, a two-term induced resolution over the Frobenius
+skew-polynomial ring $A[F]$, and integral $\mathrm{DAlg}$ flattening.
