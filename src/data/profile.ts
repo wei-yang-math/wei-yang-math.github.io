@@ -1,7 +1,7 @@
 export const profile = {
   name: "Wei Yang",
   chineseName: "杨威",
-  position: "Third-year Ph.D. student in Mathematics",
+  position: "Fourth-year Ph.D. student in Mathematics",
   affiliation: "Peking University",
   startedPhd: "2023",
   advisor: "Professor Ruochuan Liu",
