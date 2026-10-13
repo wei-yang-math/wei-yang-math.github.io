@@ -6,7 +6,7 @@ export const profile = {
   startedPhd: "2023",
   advisor: "Professor Ruochuan Liu",
   interests: ["homotopy theory", "arithmetic geometry"],
-  emailDisplay: "2301110030 [at] stu [dot] pku [dot] edu [dot] cn",
+  emailDisplay: "yangwei23 [at] stu [dot] pku [dot] edu [dot] cn",
   lastUpdated: "2026",
 };
 
