@@ -23,7 +23,6 @@ export const teaching = [
 export const navigation = [
   { href: "/", label: "Home" },
   { href: "/research/", label: "Research" },
-  { href: "/notes/", label: "Notes" },
   { href: "/teaching/", label: "Teaching" },
   { href: "/cv/", label: "CV" },
   { href: "/contact/", label: "Contact" },
